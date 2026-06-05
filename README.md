@@ -8,7 +8,7 @@ auto-detection.
 ```yaml
 - name: Generate version
   id: version
-  uses: jdfalk/generate-version-action@v1
+  uses: falkcorp/gha-generate-version@v1
   with:
     release-type: auto
     branch-name: ${{ github.ref_name }}
@@ -23,13 +23,13 @@ auto-detection.
 
 ## Inputs
 
-| Input               | Description                                                           | Default                                       |
-| ------------------- | --------------------------------------------------------------------- | --------------------------------------------- |
-| `release-type`      | Release type (major/minor/patch/auto)                                 | `auto`                                        |
-| `branch-name`       | Git branch name for context                                           | `main`                                        |
-| `prerelease-suffix` | Prerelease suffix (alpha/beta/rc)                                     | ``                                            |
-| `use-docker`        | Run the action inside the published container image                   | `false`                                       |
-| `docker-image`      | Docker image reference (tag or digest) used when `use-docker` is true | `ghcr.io/jdfalk/generate-version-action:main` |
+| Input               | Description                                                           | Default                                      |
+| ------------------- | --------------------------------------------------------------------- | -------------------------------------------- |
+| `release-type`      | Release type (major/minor/patch/auto)                                 | `auto`                                       |
+| `branch-name`       | Git branch name for context                                           | `main`                                       |
+| `prerelease-suffix` | Prerelease suffix (alpha/beta/rc)                                     | ``                                           |
+| `use-docker`        | Run the action inside the published container image                   | `false`                                      |
+| `docker-image`      | Docker image reference (tag or digest) used when `use-docker` is true | `ghcr.io/falkcorp/gha-generate-version:main` |
 
 ## Outputs
 
@@ -57,7 +57,7 @@ auto-detection.
 ### From tag v1.2.3 with patch release
 
 ```yaml
-- uses: jdfalk/generate-version-action@v1
+- uses: falkcorp/gha-generate-version@v1
   id: version
   with:
     release-type: patch
@@ -70,7 +70,7 @@ auto-detection.
 ### From tag v1.2.3 with prerelease suffix
 
 ```yaml
-- uses: jdfalk/generate-version-action@v1
+- uses: falkcorp/gha-generate-version@v1
   id: version
   with:
     release-type: minor
@@ -83,7 +83,7 @@ auto-detection.
 ### Auto-detect from commits
 
 ```yaml
-- uses: jdfalk/generate-version-action@v1
+- uses: falkcorp/gha-generate-version@v1
   id: version
   with:
     release-type: auto
@@ -94,11 +94,11 @@ auto-detection.
 ### Force Docker execution
 
 ```yaml
-- uses: jdfalk/generate-version-action@v1
+- uses: falkcorp/gha-generate-version@v1
   id: version
   with:
     use-docker: true
-    docker-image: ghcr.io/jdfalk/generate-version-action:main
+    docker-image: ghcr.io/falkcorp/gha-generate-version:main
 ```
 
 ## Features
